@@ -7,24 +7,34 @@ uses
 
 type
   TDate = Class
-    Year, Month, Day: Integer;
+    private
+      FDate: TDateTime;
 
-    Procedure SetValue(Y, M, D: Integer);
-    Function UruuDoshi: Boolean;
+    public
+      Procedure SetValue(Y, M, D: Integer);
+      Function UruuDoshi: Boolean;
+      Function GetText: String;
   end;
 
 implementation
 
+
 Procedure TDate.SetValue(Y, M, D: Integer);
 begin
-  Year := Y;
-  Month := M;
-  Day := D;
+  FDate := EncodeDate(Y,M,D);
 end;
 
 Function TDate.UruuDoshi: Boolean;
+var
+  yy, mm, dd: Word;
 begin
-  Result := IsLeapYear(Year);
+  DecodeDate(FDate, yy, mm, dd);
+  Result := IsLeapYear(yy);
+end;
+
+function TDate.GetText: String;
+begin
+  Result := DateToStr(FDate);
 end;
 
 end.
