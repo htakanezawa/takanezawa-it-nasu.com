@@ -3,7 +3,7 @@ unit Unit2;
 interface
 
 uses
-  SysUtils;
+  SysUtils, DateUtils;
 
 type
   TDate = Class
@@ -25,11 +25,8 @@ begin
 end;
 
 Function TDate.UruuDoshi: Boolean;
-var
-  yy, mm, dd: Word;
 begin
-  DecodeDate(FDate, yy, mm, dd);
-  Result := IsLeapYear(yy);
+  Result := IsLeapYear(YearOf(Fdate));
 end;
 
 function TDate.GetText: String;

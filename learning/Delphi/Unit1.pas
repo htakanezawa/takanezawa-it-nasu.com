@@ -35,10 +35,15 @@ var
 begin
   Birthday := TDate.Create;
 //  Birthday.SetValue(2020, 2, 14);
-  Birthday.SetValue(StrToIntDef(Year.Text,0), StrToIntDef(Month.Text,0), StrToIntDef(Day.Text,0));
-  if Birthday.UruuDoshi then ShowMessage('うるう年です')
-  else ShowMessage('うるう年ではない');
-  Birthday.Free;
+  try
+    Birthday.SetValue(StrToIntDef(Year.Text,0), StrToIntDef(Month.Text,0), StrToIntDef(Day.Text,0));
+    if Birthday.UruuDoshi then
+      ShowMessage('うるう年です')
+    else
+      ShowMessage('うるう年ではない');
+  finally
+    Birthday.Free;
+  end;
 end;
 
 end.
