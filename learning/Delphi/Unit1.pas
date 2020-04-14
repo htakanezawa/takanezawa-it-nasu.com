@@ -3,8 +3,11 @@ unit Unit1;
 interface
 
 uses
-  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
-  StdCtrls;
+  Windows, Messages, System.SysUtils, System.Classes, Graphics, Controls, Forms, Dialogs,
+  StdCtrls,
+
+  System.Types, System.UITypes,
+  System.Variants, System.DateUtils;
 
 type
   TForm1 = class(TForm)
@@ -12,11 +15,15 @@ type
     Year: TEdit;
     Month: TEdit;
     Day: TEdit;
+    Button2: TButton;
+    Memo1: TMemo;
     procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
   private
     { Private 宣言 }
   public
     { Public 宣言 }
+    procedure show(str: String);
   end;
 
 var
@@ -44,6 +51,34 @@ begin
   finally
     Birthday.Free;
   end;
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+var
+  myDay: TDate;
+  myNewDay: TNewDate;
+  myObject: TObject;
+begin
+  if Sender is TButton then
+    show(TButton(Sender).Caption);
+
+  myDay := TDate.Create;
+  myObject := myDay;
+  myNewDay := TNewDate.Create;
+  try
+    show('親クラス：'+ myday.GetText);
+    show('子クラス：'+ myNewDay.GetText);
+
+
+  finally
+    myDay.Free;
+    myNewDay.Free;
+  end;
+end;
+
+procedure TForm1.show(str: String);
+begin
+  Memo1.Lines.add(str);
 end;
 
 end.
