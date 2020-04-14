@@ -54,6 +54,10 @@ type
       function Voice: string; override;
   end;
 
+  TFriends = class of TKemono;
+
+  function KemonoVoice(KemonoClassName: TFriends): String;
+
 implementation
 
 
@@ -121,6 +125,18 @@ end;
 function TFennec.Voice: string;
 begin
   Result := 'yelp';
+end;
+
+function KemonoVoice(KemonoClassName: TFriends): String;
+var
+  myAnimal: TKemono;
+begin
+  myAnimal := KemonoClassName.Create;
+  try
+    Result := myAnimal.Voice;
+  finally
+    myAnimal.Free;
+  end;
 end;
 
 end.

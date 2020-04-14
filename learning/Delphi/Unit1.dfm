@@ -18,7 +18,7 @@ object Form1: TForm1
     Top = 56
     Width = 75
     Height = 25
-    Caption = 'Button1'
+    Caption = #12358#12427#12358#24180#21028#26029
     TabOrder = 0
     OnClick = Button1Click
   end
@@ -48,7 +48,7 @@ object Form1: TForm1
     Top = 56
     Width = 75
     Height = 25
-    Caption = 'Button2'
+    Caption = #26085#20184
     TabOrder = 4
     OnClick = Button2Click
   end
@@ -93,5 +93,14 @@ object Form1: TForm1
     Height = 17
     Caption = #12501#12455#12493#12483#12463
     TabOrder = 9
+  end
+  object Button4: TButton
+    Left = 888
+    Top = 264
+    Width = 75
+    Height = 25
+    Caption = #40180#12365#22768'2'
+    TabOrder = 10
+    OnClick = Button4Click
   end
 end

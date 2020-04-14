@@ -21,9 +21,11 @@ type
     RadioGroup1: TRadioGroup;
     rbServal: TRadioButton;
     rbFennec: TRadioButton;
+    Button4: TButton;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
   private
     { Private 宣言 }
   public
@@ -48,6 +50,14 @@ begin
   Birthday := TDate.Create;
 //  Birthday.SetValue(2020, 2, 14);
   try
+    if (Length(Trim(Year.Text)) = 0) or
+       (Length(Trim(Month.Text)) = 0) or
+       (Length(Trim(Day.Text)) = 0) then
+    begin
+      ShowMessage('西暦で日付を入力してください');
+      Exit;
+    end;
+
     Birthday.SetValue(StrToIntDef(Year.Text,0), StrToIntDef(Month.Text,0), StrToIntDef(Day.Text,0));
     if Birthday.UruuDoshi then
       ShowMessage('うるう年です')
@@ -74,6 +84,7 @@ begin
     show('親クラス：'+ myday.GetText);
     show('子クラス：'+ myNewDay.GetText);
 
+    show((myObject as TDate).Gettext);
 
   finally
     myDay.Free;
@@ -94,6 +105,14 @@ begin
   finally
     myAnimal.Free;
   end;
+end;
+
+procedure TForm1.Button4Click(Sender: TObject);
+begin
+  if rbServal.Checked then
+    show(KemonoVoice(TServal))
+  else
+    show(KemonoVoice(TFennec));
 end;
 
 procedure TForm1.show(str: String);
