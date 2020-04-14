@@ -28,7 +28,7 @@ type
   end;
 
 
-
+type
   TPerson = class
     private
       FName: String;
@@ -36,6 +36,22 @@ type
     public
       constructor Create(name: String);
       destructor Destroy; override;
+  end;
+
+type
+  TKemono = class(TObject)
+    public
+      function Voice: string; virtual; abstract;
+  end;
+
+  TServal = class(TKemono)
+    public
+      function Voice: string; override;
+  end;
+
+  TFennec = class(TKemono)
+    public
+      function Voice: string; override;
   end;
 
 implementation
@@ -91,6 +107,20 @@ end;
 function TNewDate.GetText: String;
 begin
   Result := FormatDateTime('gge”NmŒŽd“ú(dddd)', FDate);
+end;
+
+{ TServal }
+
+function TServal.Voice: string;
+begin
+  Result := 'meow';
+end;
+
+{ TFennec }
+
+function TFennec.Voice: string;
+begin
+  Result := 'yelp';
 end;
 
 end.

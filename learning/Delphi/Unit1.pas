@@ -7,7 +7,7 @@ uses
   StdCtrls,
 
   System.Types, System.UITypes,
-  System.Variants, System.DateUtils;
+  System.Variants, System.DateUtils, Vcl.ExtCtrls;
 
 type
   TForm1 = class(TForm)
@@ -17,8 +17,13 @@ type
     Day: TEdit;
     Button2: TButton;
     Memo1: TMemo;
+    Button3: TButton;
+    RadioGroup1: TRadioGroup;
+    rbServal: TRadioButton;
+    rbFennec: TRadioButton;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
   private
     { Private êÈåæ }
   public
@@ -73,6 +78,21 @@ begin
   finally
     myDay.Free;
     myNewDay.Free;
+  end;
+end;
+
+procedure TForm1.Button3Click(Sender: TObject);
+var
+  myAnimal: TKemono;
+begin
+  if rbServal.Checked then
+    myAnimal := TServal.Create
+  else
+    myAnimal := TFennec.Create;
+  try
+    show(myAnimal.Voice);
+  finally
+    myAnimal.Free;
   end;
 end;
 

@@ -61,4 +61,37 @@ object Form1: TForm1
       '')
     TabOrder = 5
   end
+  object Button3: TButton
+    Left = 888
+    Top = 159
+    Width = 75
+    Height = 25
+    Caption = #40180#12365#22768
+    TabOrder = 6
+    OnClick = Button3Click
+  end
+  object RadioGroup1: TRadioGroup
+    Left = 888
+    Top = 56
+    Width = 185
+    Height = 97
+    Caption = #12369#12418#12398
+    TabOrder = 7
+  end
+  object rbServal: TRadioButton
+    Left = 904
+    Top = 80
+    Width = 113
+    Height = 17
+    Caption = #12469#12540#12496#12523
+    TabOrder = 8
+  end
+  object rbFennec: TRadioButton
+    Left = 904
+    Top = 114
+    Width = 113
+    Height = 17
+    Caption = #12501#12455#12493#12483#12463
+    TabOrder = 9
+  end
 end
