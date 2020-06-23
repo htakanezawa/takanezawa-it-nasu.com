@@ -10,12 +10,15 @@ type
   TForm1 = class(TForm)
     BitBtn1: TBitBtn;
     Label1: TLabel;
+    BitBtn2: TBitBtn;
     procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
   private
     { Private êÈåæ }
   public
     { Public êÈåæ }
-    function CalcMy2Numbers(a,b:Integer):Integer;
+    function CalcMy2Numbers_addition(a,b:Integer):Integer;
+    function CalcMy2Numbers_subtraction(a,b:Integer):Integer;
   end;
 
 var
@@ -29,14 +32,27 @@ implementation
 
 procedure TForm1.BitBtn1Click(Sender: TObject);
 begin
-  Label1.Caption := IntToStr(CalcMy2Numbers(12,12));
+  Label1.Caption := IntToStr(CalcMy2Numbers_addition(12,12));
 end;
 
-function TForm1.CalcMy2Numbers(a, b: Integer): Integer;
+procedure TForm1.BitBtn2Click(Sender: TObject);
+begin
+  Label1.Caption := IntToStr(CalcMy2Numbers_subtraction(12,2));
+end;
+
+function TForm1.CalcMy2Numbers_addition(a, b: Integer): Integer;
 var
   Myavar : Integer;
 begin
   Myavar := a + b;
+  result := Myavar;
+end;
+
+function TForm1.CalcMy2Numbers_subtraction(a, b: Integer): Integer;
+var
+  Myavar : Integer;
+begin
+  Myavar := a - b;
   result := Myavar;
 end;
 

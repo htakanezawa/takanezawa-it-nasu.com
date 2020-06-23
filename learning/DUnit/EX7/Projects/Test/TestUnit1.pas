@@ -4,7 +4,7 @@ unit TestUnit1;
   Delphi DUnit テスト ケース
   ----------------------
   このユニットには、テスト ケース ウィザードで生成されたスケルトン テスト ケース クラスが含まれています。
-  生成されたコードを正しくセットアップできるように修正し、テスト対象ユニットのメソッドを 
+  生成されたコードを正しくセットアップできるように修正し、テスト対象ユニットのメソッドを
   呼び出します。
 
 }
@@ -26,7 +26,8 @@ type
     procedure SetUp; override;
     procedure TearDown; override;
   published
-    procedure TestCalcMy2Numbers;
+    procedure TestCalcMy2Numbers_addition;
+    procedure TestCalcMy2Numbers_subtraction;
   end;
 
 implementation
@@ -42,7 +43,7 @@ begin
   FForm1 := nil;
 end;
 
-procedure TestTForm1.TestCalcMy2Numbers;
+procedure TestTForm1.TestCalcMy2Numbers_addition;
 var
   ReturnValue: Integer;
   b: Integer;
@@ -51,11 +52,30 @@ begin
   a := 12;
   b := 12;
   // TODO: メソッド呼び出しパラメータのセットアップ
-  ReturnValue := FForm1.CalcMy2Numbers(a, b);
+  ReturnValue := FForm1.CalcMy2Numbers_addition(a, b);
   // TODO: メソッド結果の検証
 
 //  CheckNotEquals(24, ReturnValue, 'Bad! Value should not equal');
   CheckEquals(24, ReturnValue, 'Bad! Value should not equal');
+
+  Status('Success');
+end;
+
+procedure TestTForm1.TestCalcMy2Numbers_subtraction;
+var
+  ReturnValue: Integer;
+  b: Integer;
+  a: Integer;
+begin
+  a := 12;
+  b := 2;
+  // TODO: メソッド呼び出しパラメータのセットアップ
+  ReturnValue := FForm1.CalcMy2Numbers_subtraction(a, b);
+  // TODO: メソッド結果の検証
+
+//  CheckNotEquals(24, ReturnValue, 'Bad! Value should not equal');
+  CheckEquals(10, ReturnValue, 'Bad! Value should not equal');
+//  CheckEquals(24, ReturnValue, 'Bad! Value should not equal');
 
   Status('Success');
 end;

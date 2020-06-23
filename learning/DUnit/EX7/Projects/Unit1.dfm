@@ -25,8 +25,17 @@ object Form1: TForm1
     Top = 56
     Width = 75
     Height = 25
-    Caption = 'BitBtn1'
+    Caption = '+'
     TabOrder = 0
     OnClick = BitBtn1Click
+  end
+  object BitBtn2: TBitBtn
+    Left = 264
+    Top = 56
+    Width = 75
+    Height = 25
+    Caption = '-'
+    TabOrder = 1
+    OnClick = BitBtn2Click
   end
 end
