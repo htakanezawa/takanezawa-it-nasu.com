@@ -73,7 +73,7 @@ begin
   ReturnValue := FForm1.CalcMy2Numbers_subtraction(a, b);
   // TODO: ƒƒ\ƒbƒhŒ‹‰Ê‚ÌŒŸØ
 
-//  CheckNotEquals(24, ReturnValue, 'Bad! Value should not equal');
+  CheckNotEquals(10, ReturnValue, 'Bad! Value should not equal');
   CheckEquals(10, ReturnValue, 'Bad! Value should not equal');
 //  CheckEquals(24, ReturnValue, 'Bad! Value should not equal');
 
