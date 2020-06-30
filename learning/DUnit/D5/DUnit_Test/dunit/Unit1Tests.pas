@@ -1,4 +1,4 @@
-unit Unit1Tests;
+unit Unit1Tests;         // テストモジュール
 
 interface
 
@@ -9,17 +9,17 @@ uses
 type
   TForm1Tests = class(TTestCase)
   private
-    FForm1: TForm1;
+    FForm1: TForm1;      //テスト対象ユニットのフォームを定義
 
   protected
 
-    procedure SetUp; override;
-    procedure TearDown; override;
+    procedure SetUp; override;      //テスト前の初期化
+    procedure TearDown; override;   //テスト後の破棄
 
   published
 
     // Test methods
-    procedure TestCalcMy2Numbers_addition;
+    procedure TestCalcMy2Numbers_addition;     //計算結果を判断するテストメソッド
     procedure TestCalcMy2Numbers_subtraction;
 
   end;
@@ -28,19 +28,22 @@ implementation
 
 { TForm1Tests }
 
+//テスト前の初期化
 procedure TForm1Tests.SetUp;
 begin
   inherited;
   FForm1 := TForm1.Create(nil);
 end;
 
+//テスト後の破棄
 procedure TForm1Tests.TearDown;
 begin
   inherited;
-  FForm1.Free;
+  FForm1.Free;       //テスト対象ユニットのフォームのインスタンスを破棄
   FForm1 := nil;
 end;
 
+//計算結果を判断するテストメソッド
 procedure TForm1Tests.TestCalcMy2Numbers_addition;
 var
   ReturnValue: Integer;
@@ -54,7 +57,7 @@ begin
   // TODO: メソッド結果の検証
 
 //  CheckNotEquals(24, ReturnValue, 'Bad! Value should not equal');
-  CheckEquals(24, ReturnValue, 'Bad! Value should not equal');
+  CheckEquals(24, ReturnValue, 'Bad! Value should not equal');  //計算結果が正しいかをチェック
 
   Status('Success');
 end;
@@ -77,6 +80,7 @@ begin
 
   Status('Success');
 end;
+
 initialization
 
   TestFramework.RegisterTest('Unit1Tests Suite',

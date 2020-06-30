@@ -1,4 +1,4 @@
-unit Unit1;
+unit Unit1;    // テスト対象ユニット
 
 interface
 

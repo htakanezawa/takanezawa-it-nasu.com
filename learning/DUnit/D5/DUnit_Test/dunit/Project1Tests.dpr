@@ -2,7 +2,7 @@
 // or leave commented to create a GUI application...
 // {$APPTYPE CONSOLE}
 
-program Project1Tests;
+program Project1Tests;              // テストプロジェクト
 
 uses
   TestFramework {$IFDEF LINUX},
@@ -11,10 +11,10 @@ uses
   Forms,
   GUITestRunner {$ENDIF},
   TextTestRunner,
-  Unit1 in '..\Unit1.pas' {Form1},
+  Unit1 in '..\Unit1.pas' {Form1},  //テスト対象のユニット これは手動で追加した
   Unit1Tests in 'Unit1Tests.pas';
 
-//テスト対象のユニット これは手動で追加した
+
 
 {$R *.RES}
 
